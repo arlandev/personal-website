@@ -1,7 +1,7 @@
 export default function IntroSection() {
   return (
     <div
-      className="min-h-screen flex items-center justify-center relative py-16"
+      className="h-[80vh] flex items-center justify-center relative"
       id="introduction"
     >
       <div
@@ -13,7 +13,7 @@ export default function IntroSection() {
         }}
       ></div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 transform translate-y-0">
         <h1 className="text-center">
           <p className="text-6xl md:text-8xl font-normal drop-shadow-2xl">
             <span className="font-thin">hi,</span>

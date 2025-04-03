@@ -3,7 +3,7 @@ import { usePageTitle } from "../hooks/usePageTitle";
 
 function HomePage() {
   return (
-    <div className="pb-24">
+    <div className="pb-12">
       <IntroSection />
     </div>
   );
