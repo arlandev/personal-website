@@ -23,7 +23,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
   const handleSendClick = () => {
     const message = document.getElementById("message").value;
-    window.location.href = `mailto:connect@arlanabante.dev?subject=Let's chat!&body=${encodeURIComponent(
+    window.location.href = `mailto:connect@arlanabante.com?subject=Let's chat!&body=${encodeURIComponent(
       message
     )}`;
   };
@@ -86,7 +86,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
           <div className="mb-4">
             <p className="text-sm text-gray-500 mb-1">
-              to: connect@arlanabante.dev
+              to: connect@arlanabante.com
             </p>
             <textarea
               minLength="10"
@@ -109,10 +109,10 @@ export default function ContactModal({ isOpen, onClose }) {
             Clicking send opens your system default mail app. Otherwise, feel
             free to send me an email at{" "}
             <a
-              href="mailto:connect@arlanabante.dev"
+              href="mailto:connect@arlanabante.com"
               className="text-blue-500 hover:underline"
             >
-              connect@arlanabante.dev
+              connect@arlanabante.com
             </a>
             .
           </p>
