@@ -1,8 +1,7 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Outlet } from "@tanstack/react-router";
-
-// TODO: Make "about" a different page
+import { useEffect } from "react";
 
 function App() {
   return (

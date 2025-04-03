@@ -12,6 +12,8 @@ import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import HistoryPage from "./pages/HistoryPage";
 
+import { useEffect } from "react";
+
 const RootComponent = () => {
   return (
     <div className="h-screen flex flex-col">

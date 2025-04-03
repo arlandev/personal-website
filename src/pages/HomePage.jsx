@@ -1,4 +1,5 @@
 import IntroSection from "../components/IntroSection";
+import { usePageTitle } from "../hooks/usePageTitle";
 
 function HomePage() {
   return (

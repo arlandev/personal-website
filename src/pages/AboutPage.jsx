@@ -1,4 +1,8 @@
+import { usePageTitle } from "../hooks/usePageTitle";
+
 function AboutPage() {
+  usePageTitle("About");
+
   return (
     <main className="container mx-auto my-16 lg:w-10/12 xl:w-3/5 2xl:w-1/2">
       <div className="flex flex-col gap-4">
@@ -24,7 +28,7 @@ function AboutPage() {
             I'll add them to my /projects and you can check them out there.
           </p>
         </div>
-        <hr class="my-8 h-px w-full border-t border-dotted border-black"></hr>
+        <hr className="my-8 h-px w-full border-t border-dotted border-black"></hr>
         <div>
           <p>
             That's about all I wanted to share here. If something else comes to

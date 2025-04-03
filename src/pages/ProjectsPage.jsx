@@ -1,7 +1,10 @@
 import ProjectCard from "../components/ProjectCard";
 import SectionHeading from "../components/SectionHeading";
+import { usePageTitle } from "../hooks/usePageTitle";
 
 function ProjectsPage() {
+  usePageTitle("Projects");
+
   return (
     <div className="flex-1">
       <div className="min-h-screen py-8">
