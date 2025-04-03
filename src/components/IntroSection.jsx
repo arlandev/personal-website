@@ -1,7 +1,7 @@
 export default function IntroSection() {
   return (
     <div
-      className="h-[70vh] flex items-center justify-center relative"
+      className="min-h-screen flex items-center justify-center relative py-16"
       id="introduction"
     >
       <div
@@ -9,26 +9,27 @@ export default function IntroSection() {
         style={{
           backgroundImage: "url('/whitecircle.svg')",
           backgroundSize: "35%",
+          backgroundPosition: "center",
         }}
       ></div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 max-w-4xl mx-auto px-4">
         <h1 className="text-center">
-          <p className="text-8xl font-normal drop-shadow-2xl">
+          <p className="text-6xl md:text-8xl font-normal drop-shadow-2xl">
             <span className="font-thin">hi,</span>
-            <span className="text-8xl font-serif italic">i'm arlan</span>
+            <span className="font-serif italic">i'm arlan</span>
           </p>
-          <p className="text-2xl font-thin">
+          <p className="text-xl md:text-2xl font-thin mt-4">
             i'm currently a
             <span className="font-medium italic"> data engineer</span> based in
             manila, philippines. i have an extensive background
             <span className="font-medium"> in several disciplines.</span>
           </p>
-          <p className="text-2xl font-thin">
+          <p className="text-xl md:text-2xl font-thin mt-3">
             in my spare time, i work on projects that i find exciting—especially
             for growth and learning.
           </p>
-          <p className="text-2xl font-thin">
+          <p className="text-xl md:text-2xl font-thin mt-3">
             you can check them all out{" "}
             <a className="font-medium underline" href="/projects">
               here
