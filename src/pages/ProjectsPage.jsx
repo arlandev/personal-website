@@ -60,6 +60,20 @@ function ProjectsPage() {
               />
 
               <ProjectCard
+                title="ToeTicTac"
+                description="A dynamic twist on Tic-Tac-Toe where players can only keep three pieces on the board. Built with Next.js as a learning project inspired by a real-life game concept."
+                tools={["nextjs"]}
+                link="https://toetictac.arlanabante.com/"
+              />
+
+              <ProjectCard
+                title="Calculator"
+                description="Simple calculator app. Built with React and Vite as a learning project."
+                tools={["react", "vite"]}
+                link="https://calculator.arlanabante.com/"
+              />
+
+              <ProjectCard
                 title="TGDC: Telegram-to-Discord Mirror"
                 description="Python executable capable of reflecting messages of chosen Telegram channel to target Discord channels."
                 tools={["python", "docker"]}
