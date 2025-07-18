@@ -56,8 +56,8 @@ function HistoryPage() {
                   Data Engineer
                 </span>
                 <span className="text-right text-gray-500">
-                  Designing scalable data pipelines, building robust data
-                  models, and developing automation tools to streamline internal
+                  Buliding scalable data pipelines, creating robust data models,
+                  and developing automation tools to streamline internal
                   workflows.
                 </span>
               </div>
@@ -66,49 +66,8 @@ function HistoryPage() {
 
           <div className="flex flex-col gap-4">
             <h3 className="scroll-m-20 text-lg font-medium">Experiences</h3>
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-row items-center gap-2">
-                <span className="whitespace-nowrap break-keep font-light">
-                  2024 Feb - 2024 May
-                </span>
-                <hr className="h-px w-full border-t border-dotted border-black"></hr>
-                <a
-                  className="group flex flex-row items-center gap-px text-right hover:underline sm:whitespace-nowrap"
-                  target="_blank"
-                  href="https://www.linkedin.com/company/focus-global-inc/"
-                >
-                  Focus Global Inc.
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="size-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-row justify-between gap-10">
-                  <span className="whitespace-nowrap break-keep sm:whitespace-nowrap">
-                    Data Engineering Intern
-                  </span>
-                  <span className="text-right text-gray-500">
-                    Aided pipeline maintenance, migrated MSSQL reports,
-                    maintained built ETLs.
-                  </span>
-                </div>
-              </div>
-            </div>
 
-            <div></div>
-
+            {/* Full Stack Engineer */}
             <div className="flex flex-col gap-2">
               <div className="flex flex-row items-center gap-2">
                 <span className="whitespace-nowrap break-keep font-light">
@@ -122,11 +81,13 @@ function HistoryPage() {
               <div className="flex flex-col gap-4">
                 <div className="flex flex-row justify-between gap-10">
                   <span className="whitespace-nowrap break-keep sm:whitespace-nowrap">
-                    Web Developer
+                    Full Stack Engineer
                   </span>
                   <span className="text-right text-gray-500">
-                    Developed a blockchain-integrated website capable of
-                    handling 120+ transactions per hour.
+                    Developed a blockchain-connected web application with user
+                    authentication and support for blockchain transactions.
+                    Handled 200+ transactions per minute and supported over
+                    3,000 concurrent visitors.
                   </span>
                 </div>
               </div>
@@ -134,6 +95,7 @@ function HistoryPage() {
 
             <div></div>
 
+            {/* Quality Assurance Tester */}
             <div className="flex flex-col gap-2">
               <div className="flex flex-row items-center gap-2">
                 <span className="whitespace-nowrap break-keep font-light">
@@ -147,11 +109,12 @@ function HistoryPage() {
               <div className="flex flex-col gap-4">
                 <div className="flex flex-row justify-between gap-10">
                   <span className="whitespace-nowrap break-keep sm:whitespace-nowrap">
-                    Quality Assurance Analyst
+                    Quality Assurance Tester
                   </span>
                   <span className="text-right text-gray-500">
-                    Thoroughly tested the desktop application to identify and
-                    eliminate bugs, ensuring a seamless user experience.
+                    Collaborated with an international team to rigorously test
+                    and debug automation software, identifying issues and
+                    implementing fixes to ensure a seamless user experience.
                   </span>
                 </div>
               </div>
