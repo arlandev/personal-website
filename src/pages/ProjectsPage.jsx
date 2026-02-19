@@ -1,86 +1,46 @@
-import ProjectCard from "../components/ProjectCard";
-import SectionHeading from "../components/SectionHeading";
+import { useState, useMemo } from "react";
 import { usePageTitle } from "../hooks/usePageTitle";
+import ContentCard from "../components/ContentCard";
+import ContentFilter from "../components/ContentFilter";
+import { contentItems } from "../data/content";
 
 function ProjectsPage() {
   usePageTitle("Projects");
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const filteredContent = useMemo(() => {
+    if (activeFilter === "All") {
+      return contentItems;
+    }
+    return contentItems.filter((item) => item.category === activeFilter);
+  }, [activeFilter]);
 
   return (
-    <div className="flex-1">
-      <div className="min-h-screen py-8">
-        <section className="w-full flex flex-col p-4" id="featured">
-          <div className="w-full max-w-4xl mx-auto">
-            <SectionHeading>featured work</SectionHeading>
-            <div className="grid grid-cols-1 gap-8 w-full">
-              <ProjectCard
-                title="Document Scanner: Document OCR Pipeline System"
-                description="A document OCR pipeline system that uses Google's Document AI to extract text from PDF documents. Currently saves 80 hours per month."
-                tools={[
-                  "python",
-                  "documentai",
-                  "airflow",
-                  "gcs",
-                  "pandas",
-                  "docker",
-                ]}
-              />
+    <div className="min-h-screen py-12 text-gray-900 dark:text-gray-100">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div className="mb-8 flex items-center justify-between">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
+            All Content
+          </h1>
+          <ContentFilter
+            activeFilter={activeFilter}
+            onFilterChange={setActiveFilter}
+          />
+        </div>
 
-              <ProjectCard
-                title="Data Bot: Internal Data Intelligence Tool"
-                description="Next.js app with an MCP-integrated LLM agent that converts natural language into accurate SQL queries."
-                tools={["nextjs", "llm", "docker", "sst", "postgresql"]}
-              />
+        {/* Content Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredContent.map((content, index) => (
+            <ContentCard key={content.id} content={content} index={index} />
+          ))}
+        </div>
 
-              <ProjectCard
-                title="ECM Alerts: E-commerce Pricing Alert System"
-                description="Multi-ECM data ingestion pipeline leveraging API integration and web scraping to detect mispriced items and trigger real-time alerts, preventing pricing errors and reducing potential losses."
-                tools={["python", "selenium", "bigquery", "gcs", "pandas"]}
-              />
-
-              <ProjectCard
-                title="ThInq: UST's Helpdesk System"
-                description="University-wide helpdesk system that with real-time alerts and messaging, supporting UST's students and staff."
-                tools={["expressjs", "nodejs", "mysql"]}
-              />
-            </div>
+        {filteredContent.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-500">No content found for this filter.</p>
           </div>
-        </section>
-
-        <section className="w-full flex flex-col p-4" id="projects">
-          <div className="w-full max-w-4xl mx-auto">
-            <SectionHeading>other projects</SectionHeading>
-            <div className="grid grid-cols-1 gap-8 w-full">
-              <ProjectCard
-                title="ProMorph: Melanoma Classification Model"
-                description="A machine learning model that utilized transfer learning on a ResNet-50 model to classify dermoscopic images of melanoma."
-                tools={["python", "tensorflow", "keras"]}
-                imagePath=""
-                imageAlt=""
-                link="https://dl.acm.org/doi/10.1145/3655497.3655510"
-              />
-
-              <ProjectCard
-                title="ToeTicTac"
-                description="A dynamic twist on Tic-Tac-Toe where players can only keep three pieces on the board. Built with Next.js as a learning project inspired by a real-life game concept."
-                tools={["nextjs"]}
-                link="https://toetictac.arlanabante.com/"
-              />
-
-              <ProjectCard
-                title="Calculator"
-                description="Simple calculator app. Built with React and Vite as a learning project."
-                tools={["react", "vite"]}
-                link="https://calculator.arlanabante.com/"
-              />
-
-              <ProjectCard
-                title="TGDC: Telegram-to-Discord Mirror"
-                description="Python executable capable of reflecting messages of chosen Telegram channel to target Discord channels."
-                tools={["python", "docker"]}
-              />
-            </div>
-          </div>
-        </section>
+        )}
       </div>
     </div>
   );

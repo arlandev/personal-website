@@ -1,9 +1,4 @@
-import {
-  createRootRoute,
-  createRoute,
-  createRouter,
-  Outlet,
-} from "@tanstack/react-router";
+import { createRootRoute, createRoute, createRouter, Outlet } from "@tanstack/react-router";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -12,13 +7,11 @@ import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import HistoryPage from "./pages/HistoryPage";
 
-import { useEffect } from "react";
-
 const RootComponent = () => {
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col overflow-hidden bg-neutral-950">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow overflow-y-auto">
         <Outlet />
       </main>
       <Footer />

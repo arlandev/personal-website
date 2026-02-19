@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 export default function IntroSection() {
   return (
     <div
@@ -31,9 +33,9 @@ export default function IntroSection() {
           </p>
           <p className="text-xl md:text-2xl font-thin mt-3">
             you can check them all out{" "}
-            <a className="font-medium underline" href="/projects">
+            <Link to="/projects" className="font-medium underline">
               here
-            </a>
+            </Link>
             . also, try pressing{" "}
             <kbd className="font-mono font-medium rounded bg-zinc-800 text-white text-sm inline-flex items-center justify-center min-w-5">
               c
