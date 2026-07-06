@@ -7,7 +7,7 @@ export default function Footer() {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://github.com/arlan-dev"
+              href="https://github.com/arlandev"
               className="text-zinc-500 hover:text-zinc-100 transition-colors"
               aria-label="GitHub"
             >

@@ -87,7 +87,6 @@ export default function ContactModal({ isOpen, onClose }) {
 
           <p className="text-sm text-zinc-400 mb-4">
             If you&apos;re interested in reaching out, write a message below.
-            I&apos;ll get back to you as soon as I can.
           </p>
 
           <div className="mb-4">

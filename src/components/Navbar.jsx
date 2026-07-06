@@ -106,7 +106,7 @@ export default function Navbar() {
           {/* External Links */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/arlan-dev"
+              href="https://github.com/arlandev"
               target="_blank"
               rel="noopener noreferrer"
               className="text-zinc-500 hover:text-zinc-100 transition-colors"
