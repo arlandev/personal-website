@@ -3,6 +3,12 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import ContactModal from "./ContactModal";
 
+const navLinks = [
+  { to: "/projects", label: "projects" },
+  { to: "/about", label: "about" },
+  { to: "/history", label: "history" },
+];
+
 export default function Navbar() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const location = useRouterState({
@@ -10,11 +16,6 @@ export default function Navbar() {
   });
   const navRef = useRef(null);
   const [pillStyle, setPillStyle] = useState({ left: 0, width: 0 });
-
-  // Set dark mode as default
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
 
   // Update pill position based on active route
   useEffect(() => {
@@ -40,6 +41,7 @@ export default function Navbar() {
         e.key === "c" &&
         !e.ctrlKey &&
         !e.metaKey &&
+        !e.altKey &&
         !(e.target instanceof HTMLInputElement) &&
         !(e.target instanceof HTMLTextAreaElement)
       ) {
@@ -56,28 +58,24 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="w-full py-6 px-6 border-b border-neutral-800 bg-neutral-950">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
+      <header className="fixed top-0 left-0 right-0 z-40 h-16 border-b border-line bg-ink/80 backdrop-blur-md">
+        <div className="max-w-5xl mx-auto h-full px-6 flex justify-between items-center">
           {/* Logo */}
           <Link
             to="/"
-            className={`relative z-10 px-2 py-1 text-sm font-medium transition-colors ${
-              location === "/"
-                ? "text-white"
-                : "text-gray-400 hover:text-gray-200"
-            }`}
+            className="font-mono text-sm font-semibold tracking-tight text-zinc-100 hover:text-accent transition-colors"
           >
-            Home
+            arlan<span className="text-accent">@</span>abante
+            <span className="text-zinc-500">:~$</span>
           </Link>
 
           {/* Navigation */}
           <nav
             ref={navRef}
-            className="hidden md:flex items-center gap-8 relative"
+            className="hidden md:flex items-center gap-6 relative"
           >
-            {/* Animated pill indicator */}
             <motion.div
-              className="absolute bottom-0 h-0.5 bg-gray-200 rounded-full"
+              className="absolute -bottom-1 h-px bg-accent"
               initial={false}
               animate={{
                 left: pillStyle.left,
@@ -90,36 +88,19 @@ export default function Navbar() {
               }}
             />
 
-            <Link
-              to="/projects"
-              className={`relative z-10 px-2 py-1 text-sm font-medium transition-colors ${
-                location === "/projects"
-                  ? "text-white"
-                  : "text-gray-400 hover:text-gray-200"
-              }`}
-            >
-              Projects
-            </Link>
-            <Link
-              to="/about"
-              className={`relative z-10 px-2 py-1 text-sm font-medium transition-colors ${
-                location === "/about"
-                  ? "text-white"
-                  : "text-gray-400 hover:text-gray-200"
-              }`}
-            >
-              About
-            </Link>
-            <Link
-              to="/history"
-              className={`relative z-10 px-2 py-1 text-sm font-medium transition-colors ${
-                location === "/history"
-                  ? "text-white"
-                  : "text-gray-400 hover:text-gray-200"
-              }`}
-            >
-              History
-            </Link>
+            {navLinks.map(({ to, label }) => (
+              <Link
+                key={to}
+                to={to}
+                className={`relative z-10 font-mono text-[13px] transition-colors ${
+                  location === to
+                    ? "text-zinc-100"
+                    : "text-zinc-500 hover:text-zinc-200"
+                }`}
+              >
+                ./{label}
+              </Link>
+            ))}
           </nav>
 
           {/* External Links */}
@@ -128,13 +109,13 @@ export default function Navbar() {
               href="https://github.com/arlan-dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-zinc-500 hover:text-zinc-100 transition-colors"
               aria-label="GitHub"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 fill="currentColor"
                 viewBox="0 0 256 256"
               >
@@ -145,13 +126,13 @@ export default function Navbar() {
               href="https://www.linkedin.com/in/arlan-abante/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-zinc-500 hover:text-zinc-100 transition-colors"
               aria-label="LinkedIn"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 fill="currentColor"
                 viewBox="0 0 256 256"
               >
@@ -160,9 +141,12 @@ export default function Navbar() {
             </a>
             <button
               onClick={() => setIsContactModalOpen(true)}
-              className="px-4 py-2 text-sm font-medium text-gray-200 hover:text-white transition-colors"
+              className="hidden sm:flex items-center gap-2 font-mono text-[13px] text-zinc-400 hover:text-zinc-100 border border-line hover:border-zinc-600 rounded px-3 py-1.5 transition-colors"
             >
-              Contact
+              contact
+              <kbd className="rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] text-zinc-400">
+                c
+              </kbd>
             </button>
           </div>
         </div>

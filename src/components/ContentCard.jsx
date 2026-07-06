@@ -1,9 +1,14 @@
-import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+
+const categoryColors = {
+  Projects: "text-accent border-accent/30",
+  Writing: "text-purple-400 border-purple-400/30",
+  Reading: "text-sky-400 border-sky-400/30",
+  Hobbies: "text-orange-400 border-orange-400/30",
+};
 
 export default function ContentCard({ content, index }) {
   const {
-    id,
     title,
     category,
     date,
@@ -16,62 +21,59 @@ export default function ContentCard({ content, index }) {
     status,
   } = content;
 
-  const categoryColors = {
-    Projects: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200",
-    Writing: "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-200",
-    Reading: "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200",
-    Hobbies: "bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200",
-  };
-
-  const CardContent = () => (
-    <div className="group relative h-full rounded-lg border border-gray-200 bg-white dark:bg-neutral-900 dark:border-neutral-800 p-6 transition-all duration-200 hover:border-gray-300 hover:shadow-md dark:hover:border-neutral-700">
+  const card = (
+    <div className="group relative h-full rounded-lg border border-line bg-ink-raised p-6 transition-colors duration-200 hover:border-zinc-600">
       <div className="flex flex-col gap-3">
         {/* Category and Date */}
         <div className="flex items-center justify-between">
           <span
-            className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${
-              categoryColors[category] || "bg-gray-100 text-gray-800"
+            className={`font-mono text-[11px] border rounded px-2 py-0.5 ${
+              categoryColors[category] || "text-zinc-400 border-line"
             }`}
           >
-            {category}
+            {category.toLowerCase()}
           </span>
           {date && (
-            <span className="text-xs text-gray-500">{date}</span>
+            <span className="font-mono text-[11px] text-zinc-600">{date}</span>
           )}
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-700 dark:group-hover:text-gray-200">
+        <h3 className="text-lg font-semibold text-zinc-100 group-hover:text-white transition-colors">
           {title}
         </h3>
 
         {/* Location (for hobbies) */}
-        {location && <p className="text-sm text-gray-500 dark:text-gray-400">{location}</p>}
+        {location && (
+          <p className="font-mono text-xs text-zinc-500">{location}</p>
+        )}
 
         {/* Description */}
         {description && (
-          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+          <p className="text-sm text-zinc-400 leading-relaxed whitespace-pre-line">
             {description}
           </p>
         )}
 
         {/* Author (for reading) */}
-        {author && <p className="text-sm text-gray-500 dark:text-gray-400 italic">{author}</p>}
+        {author && (
+          <p className="text-sm text-zinc-500 italic">{author}</p>
+        )}
 
         {/* Status (for reading) */}
         {status && (
-          <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+          <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
             {status}
           </span>
         )}
 
         {/* Tags */}
         {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-2">
-            {tags.map((tag, idx) => (
+          <div className="flex flex-wrap gap-2 mt-1">
+            {tags.map((tag) => (
               <span
-                key={idx}
-                className="text-xs px-2 py-1 rounded bg-gray-100 text-gray-600"
+                key={tag}
+                className="font-mono text-[11px] text-zinc-500 border border-line rounded px-2 py-0.5"
               >
                 {tag}
               </span>
@@ -81,11 +83,12 @@ export default function ContentCard({ content, index }) {
 
         {/* Image */}
         {image && (
-          <div className="mt-4 overflow-hidden rounded-md">
+          <div className="mt-3 overflow-hidden rounded-md border border-line">
             <img
               src={image}
               alt={title}
               className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
             />
           </div>
         )}
@@ -93,14 +96,14 @@ export default function ContentCard({ content, index }) {
 
       {/* External link indicator */}
       {link && (
-        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transition-opacity">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-4 h-4 text-gray-400"
+            className="w-4 h-4 text-accent"
           >
             <path
               strokeLinecap="round"
@@ -113,33 +116,24 @@ export default function ContentCard({ content, index }) {
     </div>
   );
 
-  if (link) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, delay: index * 0.05 }}
-      >
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: index * 0.05 }}
+    >
+      {link ? (
         <a
           href={link}
           target="_blank"
           rel="noopener noreferrer"
           className="block h-full"
         >
-          <CardContent />
+          {card}
         </a>
-      </motion.div>
-    );
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.05 }}
-    >
-      <CardContent />
+      ) : (
+        card
+      )}
     </motion.div>
   );
 }
-
