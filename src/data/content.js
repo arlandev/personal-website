@@ -3,12 +3,21 @@ export const contentItems = [
   // Projects
   {
     id: "enrichment-api",
-    title: "Enrichment API, AI Video Processing Orchestration (ViralMoment)",
+    title: "Enrichment API: AI Video Processing Orchestration (ViralMoment)",
     category: "Projects",
     description:
       "Designed and built a high-throughput AI video processing orchestration API platform. Orchestrates downstream AI pipelines for social media video processing, handling 500+ requests per second and generating $40k/month in recurring revenue.",
     tags: ["python", "aws", "kafka", "kubernetes", "api-gateway"],
     link: null,
+  },
+  {
+    id: "pdf-studio",
+    title: "PDF Studio: Local-first PDF editor",
+    category: "Projects",
+    description:
+      "I didn't want to pay for Adobe Acrobat, and most free online PDF editors are either terrible or upload your files to their servers. So I built my own. Has in-line editing, page operations, and undo/redo history, all running entirely locally in the browser. No server-side processing, no data leaving your device.\n\nTo be fair, Mac's Preview app is pretty good.",
+    tags: ["react", "vite", "typescript", "pdf.js"],
+    link: "https://pdf.arlanabante.com/",
   },
   {
     id: "data-bot",
@@ -21,7 +30,7 @@ export const contentItems = [
   },
   {
     id: "ecm-alerts",
-    title: "ECM Alerts, E-commerce Pricing Alert System",
+    title: "ECM Alerts: E-commerce Pricing Alert System",
     category: "Projects",
     description:
       "Multi-ECM data ingestion pipeline leveraging API integration and web scraping to detect mispriced items and trigger real-time alerts, preventing pricing errors and reducing potential losses.",

@@ -1,20 +1,20 @@
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-gray-200 bg-white dark:bg-neutral-950 dark:border-neutral-800 mt-auto">
-      <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col items-center gap-4 md:flex-row md:justify-between">
+    <footer className="w-full border-t border-line bg-ink mt-auto">
+      <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col items-center gap-4 md:flex-row md:justify-between">
         <div className="flex flex-col items-center gap-2 md:items-start">
           <div className="flex flex-row gap-4">
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/arlan-dev"
-              className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+              className="text-zinc-500 hover:text-zinc-100 transition-colors"
               aria-label="GitHub"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 fill="currentColor"
                 viewBox="0 0 256 256"
               >
@@ -25,13 +25,13 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.linkedin.com/in/arlan-abante/"
-              className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+              className="text-zinc-500 hover:text-zinc-100 transition-colors"
               aria-label="LinkedIn"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 fill="currentColor"
                 viewBox="0 0 256 256"
               >
@@ -40,13 +40,13 @@ export default function Footer() {
             </a>
             <a
               href="mailto:connect@arlanabante.com"
-              className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+              className="text-zinc-500 hover:text-zinc-100 transition-colors"
               aria-label="Email"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 fill="currentColor"
                 viewBox="0 0 256 256"
               >
@@ -54,11 +54,11 @@ export default function Footer() {
               </svg>
             </a>
           </div>
-          <span className="text-sm text-gray-600 dark:text-gray-400">
+          <span className="font-mono text-[12px] text-zinc-600">
             © 2026 arlanabante.com
           </span>
         </div>
-        <span className="text-sm text-gray-500 dark:text-gray-500 font-mono">
+        <span className="font-mono text-[12px] text-zinc-600">
           for my tina.
         </span>
       </div>

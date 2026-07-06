@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function ContactModal({ isOpen, onClose }) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const textareaRef = useRef(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -10,19 +11,20 @@ export default function ContactModal({ isOpen, onClose }) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setIsVisible(true);
+          textareaRef.current?.focus();
         });
       });
     } else {
       setIsVisible(false);
       const timer = setTimeout(() => {
         setIsAnimating(false);
-      }, 500);
+      }, 300);
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
 
   const handleSendClick = () => {
-    const message = document.getElementById("message").value;
+    const message = textareaRef.current?.value ?? "";
     window.location.href = `mailto:connect@arlanabante.com?subject=Let's chat!&body=${encodeURIComponent(
       message
     )}`;
@@ -46,20 +48,23 @@ export default function ContactModal({ isOpen, onClose }) {
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black/30 backdrop-blur-sm z-40 transition-opacity duration-500 ${
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
         onClick={onClose}
       ></div>
 
       <section
-        className={`bg-zinc-50 fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md shadow-md p-6 max-w-md w-full z-50 transition-all duration-500 ${
+        role="dialog"
+        aria-modal="true"
+        aria-label="Contact"
+        className={`fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg border border-line bg-ink-raised shadow-2xl p-6 max-w-md w-[calc(100%-2rem)] z-50 transition-all duration-300 ${
           isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
         }`}
       >
         <div className="relative">
           <button
-            className="absolute right-0 top-0 text-gray-400 hover:text-gray-600"
+            className="absolute right-0 top-0 text-zinc-500 hover:text-zinc-200 transition-colors"
             aria-label="Close"
             onClick={onClose}
           >
@@ -77,40 +82,42 @@ export default function ContactModal({ isOpen, onClose }) {
             </svg>
           </button>
 
-          <h2 className="text-xl font-semibold mb-2">Contact Me</h2>
+          <p className="font-mono text-[13px] text-accent mb-1">$ contact --new</p>
+          <h2 className="text-xl font-semibold text-zinc-50 mb-2">Contact Me</h2>
 
-          <p className="text-gray-600 mb-4">
-            If you're interested in reaching out, write a message below. I'll
-            get back to you as soon as I can.
+          <p className="text-sm text-zinc-400 mb-4">
+            If you&apos;re interested in reaching out, write a message below.
+            I&apos;ll get back to you as soon as I can.
           </p>
 
           <div className="mb-4">
-            <p className="text-sm text-gray-500 mb-1">
+            <p className="font-mono text-[12px] text-zinc-500 mb-2">
               to: connect@arlanabante.com
             </p>
             <textarea
+              ref={textareaRef}
               minLength="10"
               maxLength="500"
               name="message"
               id="message"
               placeholder="How's it going?"
-              className="w-full p-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-300 min-h-[100px] resize-none"
+              className="w-full p-3 rounded-md border border-line bg-ink text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:border-zinc-500 min-h-[100px] resize-none font-mono text-sm"
             ></textarea>
           </div>
 
           <button
-            className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 rounded-md transition-colors"
+            className="w-full bg-zinc-100 hover:bg-white text-zinc-900 font-mono text-sm font-medium py-2.5 rounded-md transition-colors"
             onClick={handleSendClick}
           >
-            Send
+            send →
           </button>
 
-          <p className="text-xs text-gray-500 mt-3 text-center">
-            Clicking send opens your system default mail app. Otherwise, feel
-            free to send me an email at{" "}
+          <p className="text-xs text-zinc-500 mt-3 text-center">
+            Clicking send opens your system default mail app. Otherwise, email
+            me at{" "}
             <a
               href="mailto:connect@arlanabante.com"
-              className="text-blue-500 hover:underline"
+              className="text-zinc-300 hover:text-accent underline underline-offset-2 transition-colors"
             >
               connect@arlanabante.com
             </a>

@@ -6,12 +6,15 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import HistoryPage from "./pages/HistoryPage";
+import { useSmoothScroll } from "./hooks/useSmoothScroll";
 
 const RootComponent = () => {
+  useSmoothScroll();
+
   return (
-    <div className="h-screen flex flex-col overflow-hidden bg-neutral-950">
+    <div className="min-h-screen flex flex-col bg-ink text-zinc-200">
       <Navbar />
-      <main className="flex-grow overflow-y-auto">
+      <main className="flex-grow pt-16">
         <Outlet />
       </main>
       <Footer />
