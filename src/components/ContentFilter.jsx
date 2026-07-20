@@ -1,4 +1,4 @@
-const categories = ["All", "Projects", "Writing", "Reading", "Hobbies"];
+const categories = ["All", "Projects", "Work", "Research", "etc."];
 
 export default function ContentFilter({ onFilterChange, activeFilter }) {
   return (
