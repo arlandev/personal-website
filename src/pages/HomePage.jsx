@@ -51,7 +51,7 @@ function HomePage() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
             </span>
-            ai engineer — manila, ph
+            ai fullstack engineer — cainta, rizal, ph
           </motion.p>
 
           <motion.h1
@@ -69,16 +69,17 @@ function HomePage() {
             transition={{ duration: 0.4, delay: 0.1 }}
             className="mt-8 max-w-2xl text-lg md:text-xl text-zinc-400 leading-relaxed"
           >
-            Currently building AI applications and infrastructure at{" "}
+            Building cornerstone tech at{" "}
             <a
-              href="https://www.linkedin.com/company/procter-and-gamble?originalSubdomain=ph"
+              href="https://www.imaginarium.vc/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-zinc-100 underline decoration-zinc-600 underline-offset-4 hover:decoration-accent transition-colors"
             >
-              P&G
+              Imaginarium
             </a>
-            . I care about scalability, reliability, and shipping systems that can think on their own.
+            . I care about scalability, reliability, and shipping systems that
+            can think on their own.
           </motion.p>
 
           <motion.div
