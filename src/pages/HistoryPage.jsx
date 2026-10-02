@@ -24,12 +24,12 @@ const sections = [
     heading: "currently",
     entries: [
       {
-        period: "March 2026 — Present",
-        org: "P&G",
-        href: "https://www.linkedin.com/company/procter-and-gamble/",
-        role: "AI Engineer",
+        period: "October 2026 - Present",
+        org: "The Imaginarium",
+        href: "https://www.imaginarium.vc/",
+        role: "AI Full Stack Engineer",
         summary:
-          "Building reliable, scalable, and intelligent systems and infrastructure.",
+          "Building intelligent tech that act as cornerstones for businesses.",
       },
     ],
   },
@@ -37,12 +37,20 @@ const sections = [
     heading: "experience",
     entries: [
       {
+        period: "March 2026 — October 2026",
+        org: "P&G",
+        href: "https://www.linkedin.com/company/procter-and-gamble/",
+        role: "AI/Software/Platform Engineer",
+        summary:
+          "Pushed frontier tech in AMA GBS. Built the first iteration of 'Native AI' - an all-in-one autonomous AI solution for the IMDO team. In parallel, I built infra and dev tools from the ground up for our small engineering team which helped introduce best engineering practices. I ended my stint early to pursue a role focused on engineering.",
+      },
+      {
         period: "Aug 2025 — Feb 2026",
         org: "ViralMoment",
         href: "https://www.linkedin.com/company/viralmoment",
         role: "Data & Backend Engineer",
         summary:
-          "Creating revenue-generating, production-ready microservice APIs for AI-based social media video analysis. Focusing on high impact, high throughput systems.",
+          "Built revenue-generating, production-ready microservice APIs for AI-leveraged social media video analysis. Built knowledge on high impact, high throughput systems. Engineered the Enrichment API - orchestration infrastructure that handled +500 RPS.",
       },
       {
         period: "Aug 2024 — Jul 2025",
@@ -57,7 +65,7 @@ const sections = [
         org: "Timith Automations",
         role: "Full Stack Engineer",
         summary:
-          "Developed a blockchain-connected web application with user authentication and support for blockchain transactions. Handled 200+ transactions per minute and supported over 3,000 concurrent visitors.",
+          "Developed a Web3 bot automating blockchain actions like minting and wallet/asset management, processing 300,000+ automated transactions per month across 2,000 reccuring users. Generated $5.6MM in software license revenue. Generated users $12MM net gains from 2022 to 2023.",
       },
       {
         period: "Mar 2022 — Jan 2023",
@@ -131,7 +139,7 @@ function HistoryPage() {
           </div>
         </div>
         <span className="font-mono text-[13px] text-zinc-500">
-          builder — ai engineer
+          builder — ai fullstack engineer
         </span>
       </div>
 
@@ -143,7 +151,10 @@ function HistoryPage() {
             </h2>
 
             {section.entries.map((entry) => (
-              <div key={entry.org + entry.period} className="flex flex-col gap-2">
+              <div
+                key={entry.org + entry.period}
+                className="flex flex-col gap-2"
+              >
                 <div className="flex flex-row items-center gap-3">
                   <span className="font-mono text-[13px] text-zinc-400 whitespace-nowrap">
                     {entry.period}
