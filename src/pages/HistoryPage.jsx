@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { useState, useEffect } from "react";
+import Redacted from "../components/Redacted";
 
 const ExternalIcon = () => (
   <svg
@@ -25,8 +26,7 @@ const sections = [
     entries: [
       {
         period: "October 2026 - Present",
-        org: "[redacted]",
-        href: "#",
+        org: <Redacted length={15} />,
         role: "AI Full Stack Engineer",
         summary:
           "Building intelligent tech that act as cornerstones for businesses.",
@@ -150,9 +150,9 @@ function HistoryPage() {
               {section.heading}
             </h2>
 
-            {section.entries.map((entry) => (
+            {section.entries.map((entry, i) => (
               <div
-                key={entry.org + entry.period}
+                key={i}
                 className="flex flex-col gap-2"
               >
                 <div className="flex flex-row items-center gap-3">

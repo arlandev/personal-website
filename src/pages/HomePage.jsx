@@ -2,6 +2,7 @@ import { usePageTitle } from "../hooks/usePageTitle";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { contentItems } from "../data/content";
+import Redacted from "../components/Redacted";
 
 const fadeUp = {
   initial: { opacity: 0, y: 16 },
@@ -70,15 +71,7 @@ function HomePage() {
             className="mt-8 max-w-2xl text-lg md:text-xl text-zinc-400 leading-relaxed"
           >
             Building cornerstone tech at{" "}
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-100 underline decoration-zinc-600 underline-offset-4 hover:decoration-accent transition-colors"
-            >
-              [redacted]
-            </a>
-            . I care about scalability, reliability, and shipping systems that
+            <Redacted />. I care about scalability, reliability, and shipping systems that
             can think on their own.
           </motion.p>
 
